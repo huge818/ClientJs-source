@@ -1,0 +1,42 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: ClientJs - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating command line "rc.exe /l 0x804 /fo"Debug/ClientJs.res" /d "_DEBUG" /d "_AFXDLL" "C:\VC_ClientJs\ClientJs.rc"" 
+Creating temporary file "C:\Users\ADMINI~1\AppData\Local\Temp\RSP1C1C.tmp" with contents
+[
+/nologo /MDd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /Fp"Debug/ClientJs.pch" /Yu"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"C:\VC_ClientJs\ClientJs.cpp"
+"C:\VC_ClientJs\ClientJsDlg.cpp"
+"C:\VC_ClientJs\webbrowser2.cpp"
+]
+Creating command line "cl.exe @C:\Users\ADMINI~1\AppData\Local\Temp\RSP1C1C.tmp" 
+Creating temporary file "C:\Users\ADMINI~1\AppData\Local\Temp\RSP1C1D.tmp" with contents
+[
+/nologo /MDd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /Fp"Debug/ClientJs.pch" /Yc"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"C:\VC_ClientJs\StdAfx.cpp"
+]
+Creating command line "cl.exe @C:\Users\ADMINI~1\AppData\Local\Temp\RSP1C1D.tmp" 
+Creating command line "link.exe /nologo /subsystem:windows /incremental:yes /pdb:"Debug/ClientJs.pdb" /debug /machine:I386 /out:"Debug/ClientJs.exe" /pdbtype:sept  .\Debug\ClientJs.obj .\Debug\ClientJsDlg.obj .\Debug\StdAfx.obj .\Debug\webbrowser2.obj .\Debug\ClientJs.res "
+<h3>Output Window</h3>
+Compiling resources...
+Compiling...
+StdAfx.cpp
+Compiling...
+ClientJs.cpp
+ClientJsDlg.cpp
+webbrowser2.cpp
+Generating Code...
+Linking...
+
+
+
+<h3>Results</h3>
+ClientJs.exe - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

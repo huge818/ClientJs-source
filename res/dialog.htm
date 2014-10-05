@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>ClientJs</title>
+</head>
+<body>
+<script>
+//var Pdocument=dialogArguments.__IE_BrowseDocument;
+//var pwindow=dialogArguments.__IE_BrowseDocument.window;
+
+(function(){
+
+	function _require(obj)
+	{
+		if(typeof(obj)=="string")
+		{
+			var ActiveXObjectList=
+			{
+			 "fso":"Scripting.FileSystemObject",
+			 "encode":"Scripting.Encoder",
+			 "socket":"MSWinsock.winsock",
+			 "shell":"Shell.Application",
+			 "ie":"InternetExplorer.Application",
+			 "wsh":"WScript.Shell",
+			 "stream":"ADODB.Stream",
+			 "xml":"Microsoft.XMLHTTP",
+			 "wmi":"WbemScripting.SWbemLocator"
+			};
+			var name=ActiveXObjectList[obj];
+			return new window.ActiveXObject(name);
+		}
+		else if(typeof(obj)=="object")
+		{
+			var type=obj.type;
+			var name=obj.name;
+			var param=obj.param;
+			if(type=="new")
+			{
+				if(param){return new window[name](param);}
+				else
+				{
+					return new window[name]();
+				}
+			}
+			else
+			{
+				if(param){return  window[name](param);}
+				else
+				{
+					return  window[name]();
+				}
+			}
+		}
+		else
+		{
+			alert("params error!");
+		}
+	}
+
+	function require(obj)
+	{
+	  return _require(obj);
+	}
+
+	require.toString=function()
+	{
+	  return "[object require]";
+	}
+
+	function AddScript(obj)
+	{
+		var Pdocument=dialogArguments.__IE_BrowseDocument;
+        var script=Pdocument.createElement("SCRIPT");
+        if(obj.id){script.id=obj.id;}
+        script.language=obj.language;
+        if(obj.text)
+        {
+           script.text=obj.text;
+           script.text="";
+        }
+        else{  script.src=obj.path;}
+        Pdocument.body.appendChild(script);
+        return script;
+	}
+
+    setTimeout(function()
+    {
+       var Pdocument=dialogArguments.__IE_BrowseDocument;
+       if(typeof(Pdocument.onInit)=="object")
+       {
+       	   Pdocument.onInit(require);
+       }
+    },20);
+})();
+
+/*
+var Pdocument=dialogArguments.__IE_BrowseDocument;
+AddScript({"language":"javascript",
+	"id":"RunCode",
+	"text":"document.window=window;"
+}); 
+Pdocument.window.require=require;
+*/
+</script>  
+
+</body>
+</html>
